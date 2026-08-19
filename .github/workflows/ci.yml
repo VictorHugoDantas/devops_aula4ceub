@@ -1,0 +1,29 @@
+name: CI Process
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar codigo do repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias do projeto
+        run: npm install
+
+      - name: Executar analise estatica de codigo (Linter)
+        run: npm run lint
+
+      - name: Executar testes automatizados
+        run: npm test
