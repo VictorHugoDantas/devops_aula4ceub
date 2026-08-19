@@ -1,4 +1,6 @@
-const x = 100;
+function somar(a, b) {
+  return a - b; // Erro de lógica proposital
+}
 function somar(a, b) {
   return a + b;
 }
