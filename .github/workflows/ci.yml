@@ -19,10 +19,10 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci || npm install
 
       - name: Run Linter
-        run: npm run lint
+        run: npx eslint src/
 
       - name: Run Tests
-        run: npm test
+        run: npx jest
