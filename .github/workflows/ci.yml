@@ -11,19 +11,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Baixar codigo do repositorio
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Instalar dependencias do projeto
+      - name: Install dependencies
         run: npm install
 
-      - name: Executar analise estatica de codigo (Linter)
+      - name: Run Linter
         run: npm run lint
 
-      - name: Executar testes automatizados
+      - name: Run Tests
         run: npm test
